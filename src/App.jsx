@@ -1,4 +1,5 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { ProductosContext, productos } from "./context/ProductosContext";
 import "./App.css";
 import Inicio from "./pages/Inicio";
 import Catalogo from "./pages/Catalogo";
@@ -12,6 +13,7 @@ import Footer from "./components/Footer";
 function App() {
   return (
     <BrowserRouter>
+    <ProductosContext.Provider value={{ productos }}>
       <Navbar />
       <main className="pt-16">
         <Routes>
@@ -24,6 +26,7 @@ function App() {
         </Routes>
       </main>
       <Footer />
+    </ProductosContext.Provider>
     </BrowserRouter>
   );
 }
