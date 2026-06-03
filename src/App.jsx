@@ -17,7 +17,6 @@ function App() {
       <ProductosContext.Provider value={{ productos }}>
         <Navbar />
         <main className="pt-16">
-          <CarritoProvider>
             <Routes>
               <Route path="/" element={<Inicio />} />
               <Route path="/productos" element={<Catalogo />} />
@@ -26,7 +25,6 @@ function App() {
               <Route path="/carrito" element={<Carrito />} />
               <Route path="/contacto" element={<Contacto />} />
             </Routes>
-          </CarritoProvider>
         </main>
         <Footer />
       </ProductosContext.Provider>
