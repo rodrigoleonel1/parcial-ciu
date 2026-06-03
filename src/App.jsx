@@ -7,6 +7,7 @@ import Nosotros from "./pages/Nosotros";
 import Carrito from "./pages/Carrito";
 import Contacto from "./pages/Contacto";
 import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
           <Route path="/contacto" element={<Contacto />} />
         </Routes>
       </main>
+      <Footer />
     </BrowserRouter>
   );
 }
