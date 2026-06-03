@@ -12,7 +12,7 @@ const DetalleProducto = ({ agregarAlCarrito }) => {
     if (mostrarCartel) {
       const timer = setTimeout(() => {
         setMostrarCartel(false);
-      }, 3000);
+      }, 30000);
       return () => clearTimeout(timer);
     }
   }, [mostrarCartel]);
