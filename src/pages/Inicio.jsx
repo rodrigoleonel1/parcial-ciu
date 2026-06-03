@@ -1,9 +1,11 @@
 import { Link } from "react-router-dom";
-import { PRODUCTOS } from "../data/Productos";
 import CardProducto from "../components/CardProducto";
+import { ProductosContext } from "../context/ProductosContext";
+import { useContext } from "react";
 
 export default function Inicio() {
-  const destacados = PRODUCTOS.filter((p) => p.badge).slice(0, 4);
+  const { productos } = useContext(ProductosContext);
+  const destacados = productos.filter((p) => p.nombre).slice(0, 4);
   return (
     <div>
       <section className="relative h-[90vh] min-h-125 flex items-center overflow-hidden">
