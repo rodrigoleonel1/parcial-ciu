@@ -1,16 +1,13 @@
-import { Children, createContext } from "react";
+import { createContext } from "react";
 
 export const CarritoContext = createContext([]);
 
-const CarritoProvider = () => {
-
+const CarritoProvider = ({ children }) => {
     return (
-        <CarritoContext.Provider>
-            {Children}
+        <CarritoContext.Provider value={{}}>
+            {children}
         </CarritoContext.Provider>
-    )
-
-}
-
+    );
+};
 
 export default CarritoProvider;

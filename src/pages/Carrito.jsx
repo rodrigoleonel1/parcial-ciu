@@ -29,8 +29,6 @@ export default function Carrito() {
               <p className="text-sm font-medium mt-1">Subtotal: $0</p>
 
               <div className="flex gap-2 mt-3">
-                <button className="bg-gray-200 px-2 rounded">-</button>
-                <button className="bg-gray-200 px-2 rounded">+</button>
                 <button className="bg-red-500 text-white px-3 rounded ml-auto">
                   Eliminar
                 </button>
@@ -38,7 +36,7 @@ export default function Carrito() {
 
             </div>
           </div>
-          <h3>Aca voy a renderizar unas cards con los productos comprados que van a ser dinamicos</h3>
+          <h3 className="font-semibold text-lg t" >Aca voy a renderizar unas cards con los productos comprados que van a ser dinamicos</h3>
         </div>
 
       </div>
