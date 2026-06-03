@@ -12,14 +12,16 @@ function App() {
   return (
     <BrowserRouter>
       <Navbar />
-      <Routes>
-        <Route path="/" element={<Inicio />}></Route>
-        <Route path="/productos" element={<Catalogo />}></Route>
-        <Route path="/productos/:id" element={<DetalleProducto />}></Route>
-        <Route path="/nosotros" element={<Nosotros />}></Route>
-        <Route path="/carrito" element={<Carrito />}></Route>
-        <Route path="/contacto" element={<Contacto />}></Route>
-      </Routes>
+      <main className="pt-16">
+        <Routes>
+          <Route path="/" element={<Inicio />} />
+          <Route path="/productos" element={<Catalogo />} />
+          <Route path="/productos/:id" element={<DetalleProducto />} />
+          <Route path="/nosotros" element={<Nosotros />} />
+          <Route path="/carrito" element={<Carrito />} />
+          <Route path="/contacto" element={<Contacto />} />
+        </Routes>
+      </main>
     </BrowserRouter>
   );
 }
