@@ -1,0 +1,31 @@
+import { useContext } from "react";
+import { CarritoContext } from "../context/CarritoContext";
+
+export default function Buscador({ busqueda, setBusqueda, categorias }) {
+    
+    return (
+        <div className="w-72 border p-5 rounded-lg">
+            <input className="w-full border p-2 rounded" type="text" placeholder="Buscar" value={busqueda}
+                onChange={(e) => setBusqueda(e.target.value)} />
+
+            <div className="mt-8 border p-4">
+                <h3 className="font-semibold mb-4">Filtrar por:</h3>
+
+                <p className="mb-2">Categorías</p>
+
+                {categorias.map((categoria) => (
+                    <label key={categoria} className="flex items-center gap-2 mb-2">
+                        <input type="checkbox" /> {categoria}
+                        {/* onClick={() => {categorias.push(categoria)}} */}
+                    </label>
+                ))}
+
+                <div className="mt-6">
+                    <p className="mb-2">Precio</p>
+
+
+                </div>
+            </div>
+        </div>
+    )
+}
