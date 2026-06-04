@@ -1,11 +1,12 @@
 import { useParams, Link } from 'react-router-dom';
 import { useState, useEffect } from 'react'; 
-import { PRODUCTOS } from '../data/productos'; 
+import { ProductosContext } from "../context/ProductosContext"; //corrigiendo ruta
 
 const DetalleProducto = ({ agregarAlCarrito }) => {
   const { id } = useParams();
   const [mostrarCartel, setMostrarCartel] = useState(false);
   const juego = PRODUCTOS.find((p) => p.id === Number(id));
+  const { productos } = useContext(ProductosContext); //linea que se agrego para solucionar conflicto
 
 
   useEffect(() => {
