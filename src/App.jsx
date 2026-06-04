@@ -9,24 +9,27 @@ import Carrito from "./pages/Carrito";
 import Contacto from "./pages/Contacto";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
+import CarritoProvider from "./context/CarritoContext";
 
 function App() {
   return (
     <BrowserRouter>
-    <ProductosContext.Provider value={{ productos }}>
-      <Navbar />
-      <main className="pt-16">
-        <Routes>
-          <Route path="/" element={<Inicio />} />
-          <Route path="/productos" element={<Catalogo />} />
-          <Route path="/productos/:id" element={<DetalleProducto />} />
-          <Route path="/nosotros" element={<Nosotros />} />
-          <Route path="/carrito" element={<Carrito />} />
-          <Route path="/contacto" element={<Contacto />} />
-        </Routes>
-      </main>
-      <Footer />
-    </ProductosContext.Provider>
+      <ProductosContext.Provider value={{ productos }}>
+        <CarritoProvider>
+          <Navbar />
+          <main className="pt-16">
+            <Routes>
+              <Route path="/" element={<Inicio />} />
+              <Route path="/productos" element={<Catalogo />} />
+              <Route path="/productos/:id" element={<DetalleProducto />} />
+              <Route path="/nosotros" element={<Nosotros />} />
+              <Route path="/carrito" element={<Carrito />} />
+              <Route path="/contacto" element={<Contacto />} />
+            </Routes>
+          </main>
+          <Footer />
+        </CarritoProvider>
+      </ProductosContext.Provider>
     </BrowserRouter>
   );
 }
