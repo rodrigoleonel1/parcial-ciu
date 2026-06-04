@@ -1,15 +1,19 @@
-export default function Carrito() {
-  return (
-    <><div>Carrito</div>
-      <div className="bg-gray-100 min-h-screen p-6">
+import { useContext } from "react";
+import { CarritoContext } from "../context/CarritoContext";
 
+export default function Carrito() {
+  const { carrito, agregarProducto, totalProductos, totalPrecio } =
+    useContext(CarritoContext);
+  return (
+    <>
+      <div>Carrito</div>
+      <div className="bg-gray-100 min-h-screen p-6">
         <div className="max-w-5xl mx-auto">
           <div className="bg-white shadow rounded-lg p-4 mb-6 flex justify-between items-center">
-
             <div>
               <h1 className="text-xl font-bold">Carrito</h1>
               <p className="text-gray-500 text-sm">
-                Productos totales: 0
+                Productos totales: {totalProductos()}
               </p>
             </div>
 
@@ -17,11 +21,9 @@ export default function Carrito() {
               <p className="text-gray-500 text-sm">Total</p>
               <p className="text-2xl font-bold">$0</p>
             </div>
-
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div className="bg-white shadow rounded-lg p-4">
-
               <h2 className="font-semibold text-lg">Nombre del producto</h2>
 
               <p className="text-sm text-gray-500">Precio: $0</p>
@@ -33,13 +35,14 @@ export default function Carrito() {
                   Eliminar
                 </button>
               </div>
-
             </div>
           </div>
-          <h3 className="font-semibold text-lg t" >Aca voy a renderizar unas cards con los productos comprados que van a ser dinamicos</h3>
+          <h3 className="font-semibold text-lg t">
+            Aca voy a renderizar unas cards con los productos comprados que van
+            a ser dinamicos
+          </h3>
         </div>
-
       </div>
     </>
-  )
+  );
 }
