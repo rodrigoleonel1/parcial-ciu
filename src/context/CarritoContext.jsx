@@ -28,11 +28,17 @@ const CarritoProvider = ({ children }) => {
 
   function agregarProducto(producto) {
     const existe = carrito.find((p) => p.id === producto.id);
+    const existeAux = carritoAux.find((p) => p.id === producto.id);
+
     if (existe) {
       alert("No se puede comprar mas de un juego a la vez");
     } else {
+      
       setCarrito([...carrito, { ...producto, cantidad: 1 }]);
-      setCarritoAux([...carritoAux, { ...producto, cantidad: 1 }])
+
+      if (!existeAux) {
+        setCarritoAux([...carritoAux, { ...producto, cantidad: 1 }])
+      }
     }
   }
 
