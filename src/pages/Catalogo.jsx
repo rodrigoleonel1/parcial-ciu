@@ -9,11 +9,16 @@ export default function Catalogo() {
   const [busqueda, setBusqueda] = useState("");
   const [categoriasSeleccionadas, setCategoriasSeleccionadas] = useState([]);
   const categorias = [...new Set(productos?.map(p => p.categoria) || [])];
+  const [ordenPrecio, setOrdenPrecio] = useState("");
   const productosFiltrados = productos.filter(producto => {
     const coincideNombre =producto.nombre.toLowerCase().includes(busqueda.toLowerCase());
     const coincideCategoria = categoriasSeleccionadas.length === 0 || categoriasSeleccionadas.includes(producto.categoria);
-
     return coincideNombre && coincideCategoria;
+  });
+  const productosOrdenados = [...productosFiltrados].sort((a, b) => {
+    if (ordenPrecio === "asc") return a.precio - b.precio;
+    if (ordenPrecio === "desc") return b.precio - a.precio;
+    return 0;
   });
 
   return (
@@ -27,12 +32,14 @@ export default function Catalogo() {
             setBusqueda={setBusqueda}
             categoriasSeleccionadas={categoriasSeleccionadas}
             setCategoriasSeleccionadas={setCategoriasSeleccionadas}
+            ordenPrecio={ordenPrecio}
+            setOrdenPrecio={setOrdenPrecio}
             categorias={categorias}
           />
         </aside>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
 
-          {productosFiltrados.map(producto => (
+          {productosOrdenados.map(producto => (
             <CardProducto key={producto.id} producto={producto} />
           ))}
         </div>

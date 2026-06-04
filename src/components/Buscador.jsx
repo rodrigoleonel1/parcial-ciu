@@ -3,7 +3,10 @@ export default function Buscador({
     setBusqueda,
     categorias,
     categoriasSeleccionadas,
-    setCategoriasSeleccionadas }) 
+    setCategoriasSeleccionadas,
+    ordenPrecio,
+    setOrdenPrecio
+    }) 
     {
     const toggleCategoria = (categoria) => {
         if (categoriasSeleccionadas.includes(categoria)) {
@@ -32,7 +35,11 @@ export default function Buscador({
                 <div className="mt-6">
                     <p className="mb-2">Precio</p>
 
-
+                    <select value={ordenPrecio} onChange={(e) => setOrdenPrecio(e.target.value)} className="w-full border p-2 rounded bg-black text-white">
+                        <option value="">Por defecto</option>
+                        <option value="asc">De menor a mayor</option>
+                        <option value="desc">De mayor a menor</option>
+                    </select>
                 </div>
             </div>
         </div>
