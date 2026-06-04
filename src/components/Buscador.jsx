@@ -5,7 +5,8 @@ export default function Buscador({
     categoriasSeleccionadas,
     setCategoriasSeleccionadas,
     ordenPrecio,
-    setOrdenPrecio
+    setOrdenPrecio,
+    limpiarFiltros
     }) 
     {
     const toggleCategoria = (categoria) => {
@@ -41,6 +42,9 @@ export default function Buscador({
                         <option value="desc">De mayor a menor</option>
                     </select>
                 </div>
+                {(busqueda || categoriasSeleccionadas.length > 0 || ordenPrecio) && (
+                    <button onClick={limpiarFiltros} className="mt-6 w-full p-2 rounded bg-red-500 text-white hover:bg-red-600">Limpiar filtros</button>
+                )}
             </div>
         </div>
     )

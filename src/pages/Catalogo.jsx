@@ -20,6 +20,11 @@ export default function Catalogo() {
     if (ordenPrecio === "desc") return b.precio - a.precio;
     return 0;
   });
+  const limpiarFiltros = () => {
+    setBusqueda("");
+    setCategoriasSeleccionadas([]);
+    setOrdenPrecio("");
+  };
 
   return (
     <div className="container mx-auto py-8">
@@ -35,6 +40,7 @@ export default function Catalogo() {
             ordenPrecio={ordenPrecio}
             setOrdenPrecio={setOrdenPrecio}
             categorias={categorias}
+            limpiarFiltros={limpiarFiltros}
           />
         </aside>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
