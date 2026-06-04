@@ -1,7 +1,17 @@
-import { useContext } from "react";
-import { CarritoContext } from "../context/CarritoContext";
-
-export default function Buscador({ busqueda, setBusqueda, categorias }) {
+export default function Buscador({     
+    busqueda,
+    setBusqueda,
+    categorias,
+    categoriasSeleccionadas,
+    setCategoriasSeleccionadas }) 
+    {
+    const toggleCategoria = (categoria) => {
+        if (categoriasSeleccionadas.includes(categoria)) {
+            setCategoriasSeleccionadas(categoriasSeleccionadas.filter(cat => cat !== categoria));
+        } else {
+            setCategoriasSeleccionadas([...categoriasSeleccionadas, categoria]);
+        }
+    };
     
     return (
         <div className="w-72 border p-5 rounded-lg">
@@ -15,8 +25,7 @@ export default function Buscador({ busqueda, setBusqueda, categorias }) {
 
                 {categorias.map((categoria) => (
                     <label key={categoria} className="flex items-center gap-2 mb-2">
-                        <input type="checkbox" /> {categoria}
-                        {/* onClick={() => {categorias.push(categoria)}} */}
+                        <input type="checkbox" checked={categoriasSeleccionadas.includes(categoria)}  onChange={() => toggleCategoria(categoria)}/> {categoria}
                     </label>
                 ))}
 

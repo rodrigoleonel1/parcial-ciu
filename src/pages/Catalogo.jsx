@@ -5,15 +5,16 @@ import Buscador from "../components/Buscador";
 
 export default function Catalogo() {
   const {productos} = useContext(ProductosContext);
-  console.log(productos);
 
   const [busqueda, setBusqueda] = useState("");
   const [categoriasSeleccionadas, setCategoriasSeleccionadas] = useState([]);
-  const [ordenPrecio, setOrdenPrecio] = useState("");
-
   const categorias = [...new Set(productos?.map(p => p.categoria) || [])];
-  const productosFiltradosPorNombre = productos.filter(producto =>
-    producto.nombre.toLowerCase().includes(busqueda.toLowerCase()));
+  const productosFiltrados = productos.filter(producto => {
+    const coincideNombre =producto.nombre.toLowerCase().includes(busqueda.toLowerCase());
+    const coincideCategoria = categoriasSeleccionadas.length === 0 || categoriasSeleccionadas.includes(producto.categoria);
+
+    return coincideNombre && coincideCategoria;
+  });
 
   return (
     <div className="container mx-auto py-8">
@@ -24,16 +25,17 @@ export default function Catalogo() {
           <Buscador
             busqueda={busqueda}
             setBusqueda={setBusqueda}
+            categoriasSeleccionadas={categoriasSeleccionadas}
+            setCategoriasSeleccionadas={setCategoriasSeleccionadas}
             categorias={categorias}
           />
         </aside>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
 
-          {productosFiltradosPorNombre.map(producto => (
+          {productosFiltrados.map(producto => (
             <CardProducto key={producto.id} producto={producto} />
           ))}
-
-</div>
+        </div>
 
       </div>
     </div>
