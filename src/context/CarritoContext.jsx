@@ -1,19 +1,12 @@
 import { createContext, useState } from "react";
 export const CarritoContext = createContext();
 
-//Agregar carrito (se dispara dentro detalle con el btn agregar carrito)
-
-//Eliminar carrito (se dispara dentro de carrito con el boton de la card
-//  renderizada se mostrar un boton en la card que diga eliminar y
-//  que pueda elegir la cantidad de unidades)
-
-//calcular total de productos (automatico)
-
-//calcular precio total del producto (automatico)
-
 const CarritoProvider = ({ children }) => {
   const [carrito, setCarrito] = useState([]);
+  const [carritoAux, setCarritoAux] = useState([])
 
+
+  //Funcion que se podra utilizar para agregar otro tipo de compras
   function agregarVariosProductos(producto) {
     const existe = carrito.find((p) => p.id === producto.id);
     if (existe) {
@@ -31,17 +24,30 @@ const CarritoProvider = ({ children }) => {
     }
   }
 
+
+
   function agregarProducto(producto) {
     const existe = carrito.find((p) => p.id === producto.id);
+    const existeAux = carritoAux.find((p) => p.id === producto.id);
+
     if (existe) {
       alert("No se puede comprar mas de un juego a la vez");
     } else {
+      
       setCarrito([...carrito, { ...producto, cantidad: 1 }]);
+
+      if (!existeAux) {
+        setCarritoAux([...carritoAux, { ...producto, cantidad: 1 }])
+      }
     }
   }
 
-  function eliminarProducto() {
-    //logica
+  function eliminarProducto(idx) {
+    setCarrito(
+      carrito.filter((productoActual) =>
+        productoActual.id != idx
+      )
+    )
   }
 
   function aumentarCantidad() {
@@ -69,6 +75,8 @@ const CarritoProvider = ({ children }) => {
       value={{
         carrito,
         setCarrito,
+        carritoAux,
+        setCarritoAux,
         agregarProducto,
         eliminarProducto,
         aumentarCantidad,

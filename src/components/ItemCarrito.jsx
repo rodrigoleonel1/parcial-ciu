@@ -2,6 +2,8 @@ import { useContext } from "react";
 import { CarritoContext } from "../context/CarritoContext";
 
 export default function ItemCarrito({ producto }) {
+  const { eliminarProducto, agregarProducto, carrito } = useContext(CarritoContext);
+  const existeProductoActual = carrito.find((p) => p.id === producto.id);
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
       <div
@@ -25,13 +27,23 @@ export default function ItemCarrito({ producto }) {
           </p>
         </div>
         <div className="flex flex-col gap-2">
-          <button className="bg-gray-300 px-2 rounded hover:bg-gray-400">
-            Agregar
-          </button>
-
-          <button className="bg-red-500 text-white px-3 py-1 rounded hover:bg-red-600">
-            Eliminar
-          </button>
+          {
+            existeProductoActual ? (
+              <button
+                className="bg-red-500 text-white px-3 py-2 rounded hover:bg-red-600 hover:cursor-pointer transition-colors"
+                onClick={() => eliminarProducto(producto.id)}
+              >
+                Eliminar
+              </button>
+            ) : (
+              <button
+                className="bg-green-500 text-white px-3 py-2 rounded hover:bg-green-600 hover:cursor-pointer transition-colors"
+                onClick={() => agregarProducto(producto)}
+              >
+                Agregar
+              </button>
+            )
+          }
         </div>
       </div>
     </div>
