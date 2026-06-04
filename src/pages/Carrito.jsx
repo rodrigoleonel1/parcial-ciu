@@ -4,7 +4,7 @@ import { ProductosContext } from "../context/ProductosContext";
 import ItemCarrito from "../components/ItemCarrito";
 
 export default function Carrito() {
-  const { carrito, agregarProducto, totalProductos, totalPrecio } =
+  const { carritoAux,totalProductos, totalPrecio } =
     useContext(CarritoContext);
   return (
     <>
@@ -39,7 +39,7 @@ export default function Carrito() {
             </h1>
             <button className="bg-red-500 text-white px-3 py-1 rounded hover:bg-red-600" onClick={() => alert(carrito.length)}>DEBUG</button>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-              {carrito.map((producto) => (
+              {carritoAux.map((producto) => (
                 <ItemCarrito key={producto.id} producto={producto} />
               ))}
             </div>

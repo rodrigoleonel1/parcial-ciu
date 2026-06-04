@@ -2,7 +2,7 @@ import { useContext } from "react";
 import { CarritoContext } from "../context/CarritoContext";
 
 export default function ItemCarrito({ producto }) {
-  const { eliminarProducto } = useContext(CarritoContext);
+  const { eliminarProducto , carrito } = useContext(CarritoContext);
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
       <div

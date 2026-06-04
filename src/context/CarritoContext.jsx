@@ -3,6 +3,7 @@ export const CarritoContext = createContext();
 
 const CarritoProvider = ({ children }) => {
   const [carrito, setCarrito] = useState([]);
+  const [carritoAux, setCarritoAux] = useState([])
 
 
   //Funcion que se podra utilizar para agregar otro tipo de compras
@@ -31,6 +32,7 @@ const CarritoProvider = ({ children }) => {
       alert("No se puede comprar mas de un juego a la vez");
     } else {
       setCarrito([...carrito, { ...producto, cantidad: 1 }]);
+      setCarritoAux([...carritoAux, { ...producto, cantidad: 1 }])
     }
   }
 
@@ -67,6 +69,8 @@ const CarritoProvider = ({ children }) => {
       value={{
         carrito,
         setCarrito,
+        carritoAux,
+        setCarritoAux,
         agregarProducto,
         eliminarProducto,
         aumentarCantidad,
