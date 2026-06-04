@@ -1,19 +1,19 @@
 import { useParams, Link } from 'react-router-dom';
-import { useState, useEffect } from 'react'; 
+import { useState, useEffect, useContext } from 'react'; 
 import { ProductosContext } from "../context/ProductosContext"; //corrigiendo ruta
 
 const DetalleProducto = ({ agregarAlCarrito }) => {
   const { id } = useParams();
   const [mostrarCartel, setMostrarCartel] = useState(false);
-  const juego = PRODUCTOS.find((p) => p.id === Number(id));
   const { productos } = useContext(ProductosContext); //linea que se agrego para solucionar conflicto
+  const juego = productos?.find((p) => p.id === Number(id));
 
 
   useEffect(() => {
     if (mostrarCartel) {
       const timer = setTimeout(() => {
         setMostrarCartel(false);
-      }, 30000);
+      }, 4000);
       return () => clearTimeout(timer);
     }
   }, [mostrarCartel]);
