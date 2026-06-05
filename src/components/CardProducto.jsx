@@ -1,3 +1,4 @@
+import {Link} from 'react-router-dom';
 
 export default function CardProducto({ producto }) {
   return <div>
@@ -23,21 +24,10 @@ export default function CardProducto({ producto }) {
         {producto.stock > 0 ? "Añadir" : "Sin stock"}
       </button>
 
-  <button className="bg-gray-700 text-white px-3 py-2 rounded hover:bg-white hover:text-gray-700 transition-colors hover:cursor-pointer">
+  <Link to={`/productos/${producto.id}`} className="bg-gray-700 text-white px-3 py-2 rounded hover:bg-white hover:text-gray-700 transition-colors hover:cursor-pointer">
     Ir a la página
-  </button>
+  </Link>
 </div>
   </div>
   ;
 }
-
-
-{/* <div className="flex justify-between mt-4">
-  <button className="bg-blue-500 text-white px-3 py-2 rounded">
-    Añadir
-  </button>
-
-  <button className="bg-gray-700 text-white px-3 py-2 rounded">
-    Ver detalle
-  </button>
-</div> */}
