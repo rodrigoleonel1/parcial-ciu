@@ -5,25 +5,37 @@ import Buscador from "../components/Buscador";
 
 export default function Catalogo() {
   const {productos} = useContext(ProductosContext);
-
-  const [busqueda, setBusqueda] = useState("");
-  const [categoriasSeleccionadas, setCategoriasSeleccionadas] = useState([]);
   const categorias = [...new Set(productos?.map(p => p.categoria) || [])];
-  const [ordenPrecio, setOrdenPrecio] = useState("");
-  const productosFiltrados = productos.filter(producto => {
-    const coincideNombre =producto.nombre.toLowerCase().includes(busqueda.toLowerCase());
-    const coincideCategoria = categoriasSeleccionadas.length === 0 || categoriasSeleccionadas.includes(producto.categoria);
+
+  const [filtros, setFiltros] = useState({
+    busqueda: "",
+    categoriasSeleccionadas: [],
+    ordenPrecio: ""
+  });
+
+  const actualizarFiltro = (clave, valor) => {
+    setFiltros(prevFiltros => ({...prevFiltros, [clave]: valor       
+    }));
+  };
+
+
+    const productosFiltrados = productos.filter(producto => {
+    const coincideNombre =producto.nombre.toLowerCase().includes(filtros.busqueda.toLowerCase());
+    const coincideCategoria = filtros.categoriasSeleccionadas.length === 0 || filtros.categoriasSeleccionadas.includes(producto.categoria);
     return coincideNombre && coincideCategoria;
   });
+  
   const productosOrdenados = [...productosFiltrados].sort((a, b) => {
-    if (ordenPrecio === "asc") return a.precio - b.precio;
-    if (ordenPrecio === "desc") return b.precio - a.precio;
+    if (filtros.ordenPrecio === "asc") return a.precio - b.precio;
+    if (filtros.ordenPrecio === "desc") return b.precio - a.precio;
     return 0;
   });
   const limpiarFiltros = () => {
-    setBusqueda("");
-    setCategoriasSeleccionadas([]);
-    setOrdenPrecio("");
+    setFiltros({
+      busqueda: "",
+      categoriasSeleccionadas: [],
+      ordenPrecio: ""
+    });
   };
 
   return (
@@ -31,23 +43,21 @@ export default function Catalogo() {
       <h1 className="text-2xl text-center font-bold mb-5">Catálogo de Productos</h1>
       <div className="flex gap-8 p-5 m-auto justify-center">
 
-        <aside>        
+        <aside className="sticky top-16 h-fit">        
           <Buscador
-            busqueda={busqueda}
-            setBusqueda={setBusqueda}
-            categoriasSeleccionadas={categoriasSeleccionadas}
-            setCategoriasSeleccionadas={setCategoriasSeleccionadas}
-            ordenPrecio={ordenPrecio}
-            setOrdenPrecio={setOrdenPrecio}
-            categorias={categorias}
-            limpiarFiltros={limpiarFiltros}
+            filtros={filtros}
+            onChangeFiltros={actualizarFiltro}
+            limpiarfiltros={limpiarFiltros}
           />
         </aside>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
 
-          {productosOrdenados.map(producto => (
-            <CardProducto key={producto.id} producto={producto} />
-          ))}
+          {productosOrdenados.length === 0 
+          ? (<h3 className="text-center col-span-full">No se encontraron productos que coincidan con los filtros.</h3>) 
+          : (productosOrdenados.map(producto => (
+              <CardProducto key={producto.id} producto={producto} />
+            ))
+          )}
         </div>
 
       </div>
