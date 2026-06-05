@@ -76,10 +76,10 @@ export default function Catalogo() {
             limpiarfiltros={limpiarFiltros}
           />
         </aside>
-        <div className="grid flex-1 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+        <div className="grid flex-1 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 min-h-[70vh]">
 
           {productosOrdenados.length === 0 
-          ? ( <p className="text-center text-lg col-span-full">No se encontraron productos que coincidan con los filtros.</p>) 
+          ? ( <p className="text-center text-lg text-gray-400 drop-shadow-[0_0_15px_rgba(59,130,246,0.8)] col-span-full">No se encontraron productos que coincidan con los filtros.</p>) 
           : (productosOrdenados.map(producto => (
               <CardProducto key={producto.id} producto={producto} />
             ))
