@@ -6,6 +6,7 @@ import Buscador from "../components/Buscador";
 export default function Catalogo() {
   const {productos} = useContext(ProductosContext);
   const categorias = [...new Set(productos?.map(p => p.categoria) || [])];
+  const [mostrarFiltros, setMostrarFiltros] = useState(false);
 
   const [filtros, setFiltros] = useState({
     busqueda: "",
@@ -41,19 +42,44 @@ export default function Catalogo() {
   return (
     <div className="container mx-auto py-8">
       <h1 className="text-2xl text-center font-bold mb-5">Catálogo de Productos</h1>
-      <div className="flex gap-8 p-5 m-auto justify-center">
+      
+      <button onClick={() => setMostrarFiltros(true)} className="md:hidden bg-gray-700 text-white px-4 py-2 rounded mb-4 ml-4">
+        Filtrar
+      </button>
 
-        <aside className="sticky top-16 h-fit">        
+    {/* Versión movil */}
+        {mostrarFiltros && (
+          <>
+            <div className="fixed  inset-0 bg-black/50 z-40" onClick={() => setMostrarFiltros(false)} />
+
+            <aside className="fixed  top-0 left-0 h-full w-72 bg-black z-50 p-4 overflow-y-auto">
+              <button onClick={() => setMostrarFiltros(false)} className="mb-4" >
+                ✖
+              </button>
+
+              <Buscador
+                filtros={filtros}
+                onChangeFiltros={actualizarFiltro}
+                limpiarfiltros={limpiarFiltros}
+              />
+            </aside>
+          </>
+        )}
+
+      {/* Version escritorio */}
+      <div className="flex gap-8 p-5 m-auto justify-center">  
+
+        <aside className="hidden md:block sticky top-16 h-fit">
           <Buscador
             filtros={filtros}
             onChangeFiltros={actualizarFiltro}
             limpiarfiltros={limpiarFiltros}
           />
         </aside>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+        <div className="grid flex-1 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
 
           {productosOrdenados.length === 0 
-          ? (<h3 className="text-center col-span-full">No se encontraron productos que coincidan con los filtros.</h3>) 
+          ? ( <p className="text-center text-lg col-span-full">No se encontraron productos que coincidan con los filtros.</p>) 
           : (productosOrdenados.map(producto => (
               <CardProducto key={producto.id} producto={producto} />
             ))
@@ -64,3 +90,4 @@ export default function Catalogo() {
     </div>
   )
 }
+
