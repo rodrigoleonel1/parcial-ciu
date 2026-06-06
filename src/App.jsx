@@ -10,6 +10,7 @@ import Contacto from "./pages/Contacto";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import CarritoProvider from "./context/CarritoContext";
+import FinalizarCompra from "./pages/FinalizarCompra";
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
               <Route path="/nosotros" element={<Nosotros />} />
               <Route path="/carrito" element={<Carrito />} />
               <Route path="/contacto" element={<Contacto />} />
+              <Route path="/finalizarcompra" element={<FinalizarCompra />}/>
             </Routes>
           </main>
           <Footer />

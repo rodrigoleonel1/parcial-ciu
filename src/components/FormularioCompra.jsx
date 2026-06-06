@@ -25,6 +25,7 @@ export default function FormularioCompra() {
   function enviandoInformacion(e){
     e.preventDefault();
     const erroresActuales = {};
+    const regex = /\S+@\S+\.\S+/
     if (formulario.nombres.length <= 0) {
       erroresActuales.nombres = "Los Nombres son obligatorio"
     }
@@ -33,6 +34,8 @@ export default function FormularioCompra() {
     }
     if (formulario.email.length <= 0) {
       erroresActuales.email = "El email es obligatorio"
+    } else if (!regex.test(formulario.email)){
+      erroresActuales.email = "El email no tiene formato valido"
     }
     if (formulario.telefono.length <= 0){
       erroresActuales.telefono = "El numero de telefono es obligatorio"
@@ -70,15 +73,15 @@ export default function FormularioCompra() {
 
   return (
     <form onSubmit={enviandoInformacion}>
-      <input name="nombres" value={formulario.nombres} type="text" onChange={completandoCampo}/>
+      <input className="w-full bg-gray-800 text-white border border-gray-600 rounded px-3 py-2 focus:outline-none focus:border-cyan-400 hover:border-cyan-600" placeholder="Nombre/s" name="nombres" value={formulario.nombres} type="text" onChange={completandoCampo}/>
       {errores.nombres ? <span>{errores.nombres}</span> : null}
-      <input name="apellido" value={formulario.apellido} type="text" onChange={completandoCampo}/>
+      <input className="w-full bg-gray-800 text-white border border-gray-600 rounded px-3 py-2 focus:outline-none focus:border-cyan-400 hover:border-cyan-600" placeholder="Apellido" name="apellido" value={formulario.apellido} type="text" onChange={completandoCampo}/>
       {errores.apellido ? <span>{errores.apellido}</span> : null}
-      <input name="email" value={formulario.email} type="text" onChange={completandoCampo}/>
+      <input className="w-full bg-gray-800 text-white border border-gray-600 rounded px-3 py-2 focus:outline-none focus:border-cyan-400 hover:border-cyan-600" placeholder="Correo Electronico" name="email" value={formulario.email} type="text" onChange={completandoCampo}/>
       {errores.email ? <span>{errores.email}</span> : null}
-      <input name="telefono" value={formulario.telefono} type="text" onChange={completandoCampo}/>
+      <input className="w-full bg-gray-800 text-white border border-gray-600 rounded px-3 py-2 focus:outline-none focus:border-cyan-400 hover:border-cyan-600" placeholder="Telefono" name="telefono" value={formulario.telefono} type="text" onChange={completandoCampo}/>
       {errores.telefono ? <span>{errores.telefono}</span> : null}
-      <input name="direccion" value={formulario.direccion} type="text" onChange={completandoCampo}/>
+      <input className="w-full bg-gray-800 text-white border border-gray-600 rounded px-3 py-2 focus:outline-none focus:border-cyan-400 hover:border-cyan-600" placeholder="Direccion" name="direccion" value={formulario.direccion} type="text" onChange={completandoCampo}/>
       {errores.direccion ? <span>{errores.direccion}</span> : null}
       <select name="entrega" value={formulario.entrega} onChange={completandoCampo}>
         <option value="clave del juego">Clave del juego</option>
