@@ -1,8 +1,11 @@
 import { useParams, Link } from 'react-router-dom';
-import { useState, useEffect, useContext } from 'react'; 
+import { useState, useEffect, useContext } from 'react';
 import { ProductosContext } from "../context/ProductosContext"; //corrigiendo ruta
+import { CarritoContext } from "../context/CarritoContext";
+
 
 const DetalleProducto = ({ agregarAlCarrito }) => {
+  const { agregarProducto, carritoAux } = useContext(CarritoContext); //carritoAux va servir para evaluar si el juego se encuentra en la vista del carrito
   const { id } = useParams();
   const [mostrarCartel, setMostrarCartel] = useState(false);
   const { productos } = useContext(ProductosContext); //linea que se agrego para solucionar conflicto
@@ -34,15 +37,16 @@ const DetalleProducto = ({ agregarAlCarrito }) => {
   const sinStock = juego.stock === 0;
 
 
-  const handleAgregarClick = () => {    
+  const handleAgregarClick = () => {
     setMostrarCartel(true);
 
-    if (typeof agregarAlCarrito === 'function') {
+    if (typeof agregarProducto === 'function') {
       try {
-        agregarAlCarrito(juego);
+        agregarProducto(juego);
       } catch (error) {
         console.error("Error al ejecutar agregarAlCarrito:", error);
-      }}
+      }
+    }
   };
 
   const obtenerColorBadge = (badge) => {
@@ -64,20 +68,20 @@ const DetalleProducto = ({ agregarAlCarrito }) => {
           <span className="text-sm font-bold tracking-wide">Añadido al carrito</span>
         </div>
       )}
-      
+
       <div className="mb-6">
         <Link to="/productos" className="inline-flex items-center text-sm font-semibold text-slate-400 hover:text-blue-400 transition-colors group">
-          <span className="transform group-hover:-translate-x-1 transition-transform mr-2">←</span> 
+          <span className="transform group-hover:-translate-x-1 transition-transform mr-2">←</span>
           Volver a todos los juegos
         </Link>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 bg-slate-800 p-6 md:p-8 rounded-xl border border-slate-700 shadow-2xl">
-        
+
         <div className="relative overflow-hidden rounded-lg bg-slate-900 border border-slate-700 flex items-center justify-center group h-fit">
-          <img 
-            src={juego.imagen} 
-            alt={juego.nombre} 
+          <img
+            src={juego.imagen}
+            alt={juego.nombre}
             className={`w-full h-auto object-cover transition-transform duration-500 group-hover:scale-105 ${sinStock ? 'grayscale opacity-30' : ''}`}
           />
           {juego.badge && !sinStock && (
@@ -102,11 +106,11 @@ const DetalleProducto = ({ agregarAlCarrito }) => {
                 🎮 {juego.plataforma}
               </span>
             </div>
-            
+
             <h1 className="text-3xl md:text-4xl font-black text-white tracking-tight mb-3">
               {juego.nombre}
             </h1>
-            
+
             <div className="mb-5">
               <span className="text-3xl font-extrabold text-emerald-400 bg-emerald-950/40 px-4 py-1.5 rounded-lg border border-emerald-800/30 inline-block">
                 {juego.precio === 0 ? "¡GRATIS!" : `$${juego.precio.toLocaleString('es-AR')}`}
@@ -146,11 +150,10 @@ const DetalleProducto = ({ agregarAlCarrito }) => {
             <button
               onClick={handleAgregarClick}
               disabled={sinStock}
-              className={`w-full py-3.5 rounded-lg font-black tracking-wider uppercase transition-all shadow-md ${
-                sinStock 
-                  ? 'bg-slate-700 text-slate-500 cursor-not-allowed border border-slate-600' 
-                  : 'bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 text-white'
-              }`}
+              className={`w-full py-3.5 rounded-lg font-black tracking-wider uppercase transition-all shadow-md ${sinStock
+                ? 'bg-slate-700 text-slate-500 cursor-not-allowed border border-slate-600'
+                : 'bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 text-white'
+                }`}
             >
               {sinStock ? 'No Disponible' : 'Agregar al Carrito'}
             </button>
