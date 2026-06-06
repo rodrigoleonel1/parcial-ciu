@@ -1,4 +1,4 @@
-import {createContext, useState, useContext } from 'react'
+import { createContext, useState, useContext } from 'react'
 export const ProductosContext = createContext()
 
 export const productos = [
@@ -155,6 +155,23 @@ export const productos = [
     descripcion_breve: 'Juego de pelea',
     caracteristicas: ['18 personajes base', 'Modo historia', 'Cross-play', 'Torneos online'],
     stock: 10,
+  },
+
+  {
+    id: 15,
+    nombre: 'The Elder Scrolls V: Skyrim',
+    categoria: 'RPG',
+    precio: 8999,
+    imagen: 'https://shared.cloudflare.steamstatic.com/store_item_assets/steam/apps/72850/header.jpg',
+    descripcion: 'Un RPG de mundo abierto donde encarnás al Sangre de Dragón. Explorá Skyrim, enfrentá dragones y decidí el destino del reino en una historia épica llena de libertad.',
+    descripcion_breve: 'RPG de mundo abierto',
+    caracteristicas: [
+      'Mundo abierto inmenso',
+      'Sistema de habilidades libre',
+      'Dragones y magia',
+      'Mods ilimitados'
+    ],
+    stock: 12,
   },
 ]
 
