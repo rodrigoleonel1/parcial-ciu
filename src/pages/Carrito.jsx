@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { CarritoContext } from "../context/CarritoContext";
 import ItemCarrito from "../components/ItemCarrito";
+import { Link } from "react-router";
 
 export default function Carrito() {
   const { carritoAux, totalProductos, totalPrecio } =
@@ -23,9 +24,9 @@ export default function Carrito() {
                 Productos totales: {totalProductos()}
               </p>
               <p className="text-gray-300 text-sm">Total: ${totalPrecio()}</p>
-              <button className="bg-gray-700 text-white px-5 py-2 text-xs sm:px-3 sm:py-2 sm:text-sm rounded hover:bg-green-600 hover:cursor-pointer transition-colors m-2">
+              <Link to="/finalizarcompra" className="bg-gray-700 text-white px-5 py-2 text-xs sm:px-3 sm:py-2 sm:text-sm rounded hover:bg-green-600 hover:cursor-pointer transition-colors m-2">
                 Continuar compra
-              </button>
+              </Link>
             </div>
           )}
         </div>
