@@ -1,9 +1,12 @@
 import { Link, NavLink } from "react-router-dom";
 import { useState } from "react";
+import { useContext } from "react";
+import { CarritoContext } from "../context/CarritoContext";
 import { ShoppingCart, Menu, X } from "lucide-react";
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const { totalProductos } = useContext(CarritoContext);
   const handleClick = () => {
     setMenuOpen(!menuOpen);
   };
@@ -51,6 +54,9 @@ export default function Navbar() {
             <Link to="/carrito">
               <div className="flex items-center gap-2 bg-gray-800 hover:bg-gray-700 border border-gray-700 hover:border-cyan-400 rounded-lg px-3 py-2 transition-all">
                 <ShoppingCart className="w-5 h-5 text-gray-300 group-hover:text-cyan-400 transition-colors" />
+                <span className="text-sm font-bold text-gray-300 group-hover:text-cyan-400 transition-colors">
+                  {totalProductos()}
+                </span>
               </div>
             </Link>
 
