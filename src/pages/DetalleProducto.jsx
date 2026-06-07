@@ -24,10 +24,10 @@ const DetalleProducto = ({ agregarAlCarrito }) => {
 
   if (!juego) {
     return (
-      <div className="container mx-auto px-4 py-16 text-center max-w-md">
+      <div className="container min-h-screen mx-auto px-4 py-16 text-center max-w-md">
         <div className="text-6xl mb-4">🎮</div>
         <h2 className="text-3xl font-extrabold text-red-500 mb-2">Juego No Encontrado</h2>
-        <Link to="/productos" className="inline-block w-full bg-blue-600 text-white font-bold py-3 rounded-lg">
+        <Link to="/productos" className="inline-block w-full bg-blue-600 text-white font-bold py-3 rounded-lg mt-8">
           Volver a la Tienda
         </Link>
       </div>
