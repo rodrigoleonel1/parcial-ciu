@@ -173,6 +173,36 @@ export const productos = [
     ],
     stock: 12,
   },
+  {
+    id: 16,
+    nombre: 'Resident Eivil 4 Remake',
+    categoria: 'Survival Horror',
+    precio: 16999,
+    imagen: 'https://media.revistagq.com/photos/63e9f744df9a2fddd35517c5/16:9/w_2560%2Cc_limit/resident-evil-4-remake.jpeg',
+    descripcion: 'La icónica experiencia de Resident Evil 4, ahora en una versión remasterizada con gráficos mejorados y nuevas características.',
+    descripcion_breve: 'Remake del clásico de terror',
+    caracteristicas: [
+      'Gráficos mejorados',
+      'Jugabilidad renovada',
+      'Nuevos modos de juego',
+      'Contenido adicional exclusivo'
+    ],
+    stock: 4,
+  },
+  {
+    id: 17,
+    nombre: 'Skyrim',
+    categoria: 'RPG',
+    precio: 14999,
+    imagen: 'https://image.api.playstation.com/vulcan/ap/rnd/202110/2019/aDSOgerXg4V6sf5A7VzHiTun.jpg',
+    descripcion: 'un RPG de mundo abierto donde encarnás al Sangre de Dragón. Explorá Skyrim, enfrentá dragones y decidí el destino del reino en una historia épica llena de libertad.',
+    descripcion_breve: 'RPG de mundo abierto',
+    caracteristicas: [
+      'Mundo abierto inmenso',
+      'Sistema de habilidades libre',
+      'Dragones y magia',
+      'Mods ilimitados'
+    ],
+    stock: 4,
+  }
 ]
-
-// export const categorias = ['Todas', ...new Set(productos.map(p => p.categoria))]
