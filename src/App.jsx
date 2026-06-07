@@ -11,6 +11,7 @@ import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import CarritoProvider from "./context/CarritoContext";
 import FinalizarCompra from "./pages/FinalizarCompra";
+import NoEncontrado from "./pages/NoEncontrado";
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
               <Route path="/carrito" element={<Carrito />} />
               <Route path="/contacto" element={<Contacto />} />
               <Route path="/finalizarcompra" element={<FinalizarCompra />}/>
+              <Route path="*" element={<NoEncontrado />} />
             </Routes>
           </main>
           <Footer />
