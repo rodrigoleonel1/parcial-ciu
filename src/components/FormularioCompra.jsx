@@ -1,8 +1,9 @@
 import { useContext, useState } from "react"
 import { CarritoContext } from "../context/CarritoContext"
-import { Link } from "react-router"
+import { Link, useNavigate } from "react-router"
 
 export default function FormularioCompra() {
+  const navigate = useNavigate();
   const [formulario, setFormulario] = useState({
     nombres: "",
     apellido: "",
@@ -66,7 +67,9 @@ export default function FormularioCompra() {
         <h2>¡Gracias por comprar en NotSteam, {formulario.nombres}!</h2>
         <h3>A continuacion te enviaremos tu {formulario.entrega}</h3>
         <p>Recibiras la confirmacion de tu compra en: {formulario.email}</p>
-        <Link to="/">Volver al Inicio</Link>
+        <button className="bg-gray-700 mt-5 text-white px-5 py-2 text-xs sm:px-3 sm:py-2 sm:text-sm rounded hover:bg-blue-600 hover:cursor-pointer transition-colors m-2" type="button" onClick={() => navigate("/")}>
+          Volver al Inicio
+        </button>
       </div>
     )
   }
@@ -151,12 +154,13 @@ export default function FormularioCompra() {
       >
         Finalizar Compra
       </button>
-      <Link
-        to="/carrito"
+      <button
+        type="button"
+        onClick={() => navigate(-1)}
         className="bg-gray-700 text-white px-5 py-2 text-xs sm:px-3 sm:py-2 sm:text-sm rounded hover:bg-cyan-600 hover:cursor-pointer transition-colors m-2"
       >
         Atras
-      </Link>
+      </button>
     </form>
   )
 }
