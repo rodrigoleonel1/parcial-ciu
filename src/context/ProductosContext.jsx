@@ -12,6 +12,7 @@ export const productos = [
     descripcion_breve: 'RPG de acción en mundo abierto',
     caracteristicas: ['Mundo abierto', 'Multijugador online', 'Más de 100 horas de contenido', 'DLC incluido'],
     stock: 8,
+    badge: 'null'
   },
   {
     id: 2,
@@ -23,6 +24,7 @@ export const productos = [
     descripcion_breve: 'Aventura futurista',
     caracteristicas: ['Mundo abierto masivo', 'Historia ramificada', 'Expansión Phantom Liberty', 'Ray Tracing'],
     stock: 15,
+    badge: null
   },
   {
     id: 3,
@@ -34,6 +36,7 @@ export const productos = [
     descripcion_breve: 'Aventura épica',
     caracteristicas: ['Historia épica', 'Gráficos next-gen', 'Duración 40+ horas', 'Premio GOTY'],
     stock: 5,
+    badge: 'GOTY'
   },
   {
     id: 4,
@@ -45,6 +48,7 @@ export const productos = [
     descripcion_breve: 'Aventura en el mundo de Hyrule',
     caracteristicas: ['Construcción sandbox', 'Mundo abierto 3D', 'Más de 60 mazmorras', 'Física avanzada'],
     stock: 3,
+    badge: 'GOTY'
   },
   {
     id: 5,
@@ -56,6 +60,7 @@ export const productos = [
     descripcion_breve: 'FPS competitivo',
     caracteristicas: ['Free to Play', 'Motor Source 2', 'Competitivo 5v5', 'Actualizaciones constantes'],
     stock: 99,
+    badge: 'Free'
   },
   {
     id: 6,
@@ -67,6 +72,7 @@ export const productos = [
     descripcion_breve: 'Aventura del Viejo Oeste',
     caracteristicas: ['Mundo vivo y dinámico', 'Historia aclamada', 'Modo online', 'Detalles increíbles'],
     stock: 0,
+    badge: 'Bestseller'
   },
   {
     id: 7,
@@ -78,6 +84,7 @@ export const productos = [
     descripcion_breve: 'RPG por turnos',
     caracteristicas: ['Co-op 4 jugadores', 'Más de 174 horas', 'Múltiples finales', 'GOTY 2023'],
     stock: 12,
+    badge: 'null'
   },
   {
     id: 8,
@@ -89,6 +96,7 @@ export const productos = [
     descripcion_breve: 'Juego de fútbol realista',
     caracteristicas: ['FC IQ', 'Modos online y offline', 'Ligas y selecciones oficiales', 'Cross-play'],
     stock: 20,
+    badge: 'Bestseller'
   },
   {
     id: 9,
@@ -100,6 +108,7 @@ export const productos = [
     descripcion_breve: 'Metroidvania de acción',
     caracteristicas: ['Más de 40 horas', 'Jefes épicos', 'Arte dibujado a mano', 'DLCs gratuitos'],
     stock: 50,
+    badge: null
   },
   {
     id: 10,
@@ -111,6 +120,7 @@ export const productos = [
     descripcion_breve: 'FPS con modo campaña',
     caracteristicas: ['Campaña 15+ horas', 'Multiplayer 6v6', 'Zombies', 'Warzone integrado'],
     stock: 7,
+      badge: null
   },
   {
     id: 11,
@@ -122,6 +132,7 @@ export const productos = [
     descripcion_breve: 'RPG de simulación',
     caracteristicas: ['Multijugador hasta 4', 'Actualizaciones gratuitas', 'Cross-save', 'Relajante y profundo'],
     stock: 99,
+    badge: null
   },
   {
     id: 12,
@@ -133,6 +144,7 @@ export const productos = [
     descripcion_breve: 'Aventura de Spider-Man',
     caracteristicas: ['Exclusivo PS5', 'Mundo abierto NYC', 'Dos protagonistas', 'Ray Tracing 60fps'],
     stock: 0,
+    badge: null
   },
   {
     id: 13,
@@ -144,6 +156,7 @@ export const productos = [
     descripcion_breve: 'Juego de construcción',
     caracteristicas: ['Modo creativo y survival', 'Mods ilimitados', 'Multiplayer', 'Actualizaciones gratuitas'],
     stock: 99,
+    badge: 'Bestseller'
   },
   {
     id: 14,
@@ -155,6 +168,7 @@ export const productos = [
     descripcion_breve: 'Juego de pelea',
     caracteristicas: ['18 personajes base', 'Modo historia', 'Cross-play', 'Torneos online'],
     stock: 10,
+    badge: null
   },
 
   {
@@ -172,10 +186,11 @@ export const productos = [
       'Mods ilimitados'
     ],
     stock: 12,
+      badge: null
   },
   {
     id: 16,
-    nombre: 'Resident Eivil 4 Remake',
+    nombre: 'Resident Evil 4 Remake',
     categoria: 'Survival Horror',
     precio: 16999,
     imagen: 'https://media.revistagq.com/photos/63e9f744df9a2fddd35517c5/16:9/w_2560%2Cc_limit/resident-evil-4-remake.jpeg',
@@ -188,6 +203,7 @@ export const productos = [
       'Contenido adicional exclusivo'
     ],
     stock: 4,
+      badge: 'bestseller'
   },
   {
     id: 17,
@@ -204,5 +220,6 @@ export const productos = [
       'Mods ilimitados'
     ],
     stock: 4,
+      badge: null
   }
 ]

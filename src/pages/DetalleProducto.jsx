@@ -25,7 +25,6 @@ const DetalleProducto = ({ agregarAlCarrito }) => {
   if (!juego) {
     return (
       <div className="container min-h-screen mx-auto px-4 py-16 text-center max-w-md">
-        <div className="text-6xl mb-4">🎮</div>
         <h2 className="text-3xl font-extrabold text-red-500 mb-2">Juego No Encontrado</h2>
         <Link to="/productos" className="inline-block w-full bg-blue-600 text-white font-bold py-3 rounded-lg mt-8">
           Volver a la Tienda
@@ -86,7 +85,7 @@ const DetalleProducto = ({ agregarAlCarrito }) => {
           />
           {juego.badge && !sinStock && (
             <span className={`absolute top-4 left-4 text-xs font-black px-3 py-1.5 rounded uppercase tracking-wider shadow-md ${obtenerColorBadge(juego.badge)}`}>
-              🔥 {juego.badge}
+              {juego.badge}
             </span>
           )}
           {sinStock && (
@@ -101,9 +100,6 @@ const DetalleProducto = ({ agregarAlCarrito }) => {
             <div className="flex flex-wrap gap-2 items-center mb-3">
               <span className="bg-slate-900 text-blue-400 border border-blue-900/60 text-xs px-2.5 py-1 rounded font-bold uppercase">
                 {juego.categoria}
-              </span>
-              <span className="text-xs text-slate-400 font-medium bg-slate-900/50 px-2.5 py-1 rounded">
-                🎮 {juego.plataforma}
               </span>
             </div>
 
@@ -137,7 +133,7 @@ const DetalleProducto = ({ agregarAlCarrito }) => {
             </div>
 
             <div className="text-xs border-t border-slate-700/50 pt-4 flex items-center space-x-1.5">
-              <span className="text-slate-400">Estado de claves:</span>
+              <span className="text-slate-400">Stock:</span>
               {sinStock ? (
                 <span className="text-red-400 font-extrabold uppercase">Sin Stock</span>
               ) : (
