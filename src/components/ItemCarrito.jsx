@@ -26,7 +26,7 @@ export default function ItemCarrito({ producto }) {
     useContext(CarritoContext);
   const existeProductoActual = carrito.find((p) => p.id === producto.id);
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-5">
+    <div className="grid min-w-full grid-cols-1 md:grid-cols-2 gap-4 mb-5">
       <div
         key={producto.id}
         className="bg-gray-900 border border-gray-800 shadow-lg 
