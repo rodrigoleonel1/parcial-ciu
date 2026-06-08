@@ -56,7 +56,7 @@ export default function Buscador({filtros, onChangeFiltros, limpiarfiltros})
         {(busqueda || categoriasSeleccionadas.length > 0 || ordenPrecio) && (
           <button 
             onClick={limpiarfiltros} 
-            className="mt-6 w-full p-2 rounded bg-red-500 text-white hover:bg-red-600"
+            className="mt-6 w-full p-2 rounded bg-rose-500 text-white hover:bg-rose-600"
           >
             Limpiar filtros
           </button>
