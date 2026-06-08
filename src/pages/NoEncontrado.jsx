@@ -16,7 +16,6 @@ export default function NoEncontrado() {
                     Volver a la página principal
                 </Link>
             </div>
-            <Alerta mensaje="Alerta de prueba." tipo="advertencia" />
         </div>
     )
 }

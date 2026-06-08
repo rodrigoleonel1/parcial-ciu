@@ -25,3 +25,13 @@
 ::-webkit-scrollbar-thumb:hover {
   background: #4070ff;
 }
+
+@keyframes slideIn {
+  from {
+    transform: translateX(100%);
+  }
+
+  to {
+    transform: translateX(0);
+  }
+}

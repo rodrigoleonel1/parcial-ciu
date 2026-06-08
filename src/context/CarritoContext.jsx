@@ -109,7 +109,7 @@ const dispararAlerta = (mensaje, tipo) => {
       }}
     >
       {children}
-          {visible && (
+      {visible && (
       <Alerta
         mensaje={alertaInfo.mensaje}
         tipo={alertaInfo.tipo}

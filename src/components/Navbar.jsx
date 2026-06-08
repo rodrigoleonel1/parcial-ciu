@@ -1,12 +1,16 @@
 import { Link, NavLink } from "react-router-dom";
 import { useState } from "react";
 import { useContext } from "react";
+import FavoritosModal from "./FavoritosModal";
 import { CarritoContext } from "../context/CarritoContext";
-import { ShoppingCart, Menu, X } from "lucide-react";
+import { ShoppingCart, Menu, X, Heart } from "lucide-react";
+import { FavoritosContext } from "../context/FavoritosContext";
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
   const { totalProductos } = useContext(CarritoContext);
+  const {favoritos} = useContext(FavoritosContext);
+  const [mostrarFavoritos, setMostrarFavoritos] = useState(false);
   const handleClick = () => {
     setMenuOpen(!menuOpen);
   };
@@ -59,6 +63,18 @@ export default function Navbar() {
                 </span>
               </div>
             </Link>
+            {/* Icono favoritos */}
+            <button onClick={() => setMostrarFavoritos(true)}>
+              <div className="flex items-center gap-2 bg-gray-800 hover:bg-gray-700 border border-gray-700 hover:border-cyan-400 rounded-lg px-3 py-2 transition-all">
+                <Heart className="w-5 h-5 text-gray-300 group-hover:text-cyan-400 transition-colors" />
+                <span className="text-sm font-bold text-gray-300 group-hover:text-cyan-400 transition-colors">
+                  {favoritos.length}
+                </span>
+              </div>
+            </button>
+            {mostrarFavoritos && (
+              <FavoritosModal onClose={() => setMostrarFavoritos(false)}/>
+            )}
 
             {/* Boton abrir/cerrar menu */}
             <button

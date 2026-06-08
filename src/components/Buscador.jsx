@@ -15,7 +15,7 @@ export default function Buscador({filtros, onChangeFiltros, limpiarfiltros})
     };
     
     return (
-    <div className="w-full border border-gray-700 p-5 rounded-lg">
+    <div className="w-full border border-gray-700 p-5 rounded-lg ">
       <input 
         className="w-full border border-gray-400 p-2 rounded" 
         type="text" 
