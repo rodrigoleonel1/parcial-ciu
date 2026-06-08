@@ -1,4 +1,5 @@
 import {Link} from "react-router-dom";
+import Alerta from "../components/Alerta"
 
 export default function NoEncontrado() {
     return (
@@ -11,10 +12,11 @@ export default function NoEncontrado() {
                 className="mx-auto mt-4 w-64 h-64 object-contain"
             ></img>
              <div className="flex justify-center mt-6">
-                <Link to={`/`} className="bg-blue-800 hover:bg-blue-900 text-white font-bold py-2 px-4 rounded">
+                <Link to={`/`} className="bg-cyan-500 hover:bg-cyan-400 text-black font-bold py-2 px-4 rounded">
                     Volver a la página principal
                 </Link>
             </div>
+            <Alerta mensaje="Alerta de prueba." tipo="advertencia" />
         </div>
     )
 }

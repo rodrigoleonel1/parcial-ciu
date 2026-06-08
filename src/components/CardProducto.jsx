@@ -23,7 +23,7 @@ export default function CardProducto({ producto }) {
     <div className="flex justify-between mt-4">
       <button disabled={producto.stock === 0} onClick={() => agregarProducto(producto)} className={`px-3 py-2 rounded transition-colors
         ${producto.stock > 0 
-        ? "bg-cyan-500 text-black hover:bg-cyan-600 hover:cursor-pointer"
+        ? "bg-cyan-500 text-black hover:bg-cyan-400 hover:cursor-pointer"
         : "bg-rose-700 hover:bg-rose-800 disabled:opacity-50 disabled:cursor-not-allowed"}`}>
         {producto.stock > 0 ? "Añadir" : "Sin stock"}
       </button>
