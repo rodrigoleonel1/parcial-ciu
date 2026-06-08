@@ -17,7 +17,7 @@ export default function FormularioCompra() {
   const [errores, setErrores] = useState({})
   const [compraConfirmada, setCompraConfirmada] = useState(false);
 
-  const { carrito, setCarrito } = useContext(CarritoContext);
+  const { carrito, setCarrito, carritoAux, setCarritoAux} = useContext(CarritoContext);
 
   function completandoCampo(e) {
     setFormulario({ ...formulario, [e.target.name]: e.target.value })
@@ -59,6 +59,7 @@ export default function FormularioCompra() {
     if (Object.keys(erroresActuales).length === 0) {
       setCompraConfirmada(true);
       setCarrito([])
+      setCarritoAux([])
     }
   }
 
