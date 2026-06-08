@@ -2,6 +2,8 @@ import { useParams, Link } from 'react-router-dom';
 import { useState, useEffect, useContext } from 'react';
 import { ProductosContext } from "../context/ProductosContext"; //corrigiendo ruta
 import { CarritoContext } from "../context/CarritoContext";
+import { GamepadDirectional } from 'lucide-react';
+
 
 
 const DetalleProducto = ({ agregarAlCarrito }) => {
@@ -125,7 +127,7 @@ const DetalleProducto = ({ agregarAlCarrito }) => {
               <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs text-slate-300">
                 {juego.caracteristicas.map((item, index) => (
                   <li key={index} className="flex items-center space-x-2 bg-slate-900/40 p-2 rounded border border-slate-700/30">
-                    <span className="text-blue-500 font-bold">✔</span>
+                    <span className="text-blue-500 font-bold"><GamepadDirectional /></span>
                     <span>{item}</span>
                   </li>
                 ))}
