@@ -16,14 +16,14 @@
   width: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: #0d1220;
+  background: oklch(39.8% 0.07 227.392);
 }
 ::-webkit-scrollbar-thumb {
-  background: #243059;
+  background: oklch(52% 0.105 223.128);
   border-radius: 3px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #4070ff;
+  background: oklch(78.9% 0.154 211.53);
 }
 
 @keyframes slideIn {

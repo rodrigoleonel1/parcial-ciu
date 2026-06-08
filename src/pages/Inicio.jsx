@@ -13,7 +13,7 @@ export default function Inicio() {
           <img
             className="h-full w-full object-cover"
             src="https://images.template.net/376680/Neon-Gaming-Background-edit-online-1.jpg"
-            alt="Colección de accesorios"
+            alt="Fondo de portada"
           />
           <div className="absolute inset-0 bg-gray-900 opacity-80 backdrop-blur-lg" />
         </div>
@@ -46,7 +46,7 @@ export default function Inicio() {
         <div className="flex items-center justify-between mb-8">
           <div>
             <h2 className="font-display font-bold text-3xl text-white">
-              Juegos Destacados
+              Juegos <span className="text-cyan-400">Destacados</span>
             </h2>
             <p className="text-gray-400">Los más buscados por la comunidad</p>
           </div>

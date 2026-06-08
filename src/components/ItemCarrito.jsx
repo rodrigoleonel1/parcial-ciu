@@ -26,11 +26,11 @@ export default function ItemCarrito({ producto }) {
     useContext(CarritoContext);
   const existeProductoActual = carrito.find((p) => p.id === producto.id);
   return (
-    <div className="grid min-w-full grid-cols-1 md:grid-cols-2 gap-4 mb-5">
+    <div className="min-w-full gap-4 mb-5">
       <div
         key={producto.id}
         className="bg-gray-900 border border-gray-800 shadow-lg 
-        rounded-xl p-4 flex flex-col sm:flex-row gap-4 sm:items-center hover:border-cyan-400 transition-all"
+        rounded-xl p-4 flex gap-4 items-center hover:border-cyan-400 transition-all"
       >
         <img
           src={producto.imagen}
@@ -38,7 +38,7 @@ export default function ItemCarrito({ producto }) {
           className="w-24 h-24 object-cover rounded-lg"
         />
         <div className="flex-1 min-w-0">
-          <h2 className="font-semibold text-lg text-white break-words">
+          <h2 className="font-semibold text-lg  wrap-break-word">
             {producto.nombre}
           </h2>
 
@@ -53,14 +53,14 @@ export default function ItemCarrito({ producto }) {
         <div className="flex flex-col gap-2">
           {existeProductoActual ? (
             <button
-              className="bg-rose-500 text-white px-2 py-1 text-xs sm:px-3 sm:py-2 sm:text-sm rounded hover:bg-rose-600 hover:cursor-pointer transition-colors"
+              className="bg-rose-500 hover:bg-rose-400 text-black font-display font-bold px-8 py-2 rounded-xl transition-all hover:shadow-lg uppercase hover:cursor-pointer"
               onClick={() => eliminarProducto(producto.id)}
             >
               Eliminar
             </button>
           ) : (
             <button
-              className="bg-cyan-500 text-black px-2 py-1 text-xs sm:px-3 sm:py-2 sm:text-sm rounded hover:bg-cyan-400 hover:cursor-pointer transition-colors"
+              className="bg-cyan-400 hover:bg-cyan-300 text-black font-display font-bold px-8 py-2 rounded-xl transition-all hover:shadow-lg uppercase hover:cursor-pointer"
               onClick={() => agregarProducto(producto)}
             >
               Agregar
