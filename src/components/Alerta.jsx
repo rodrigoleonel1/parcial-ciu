@@ -6,6 +6,7 @@ export default function Alerta({mensaje, tipo}) {
         "advertencia": ['border-amber-500', 'bg-amber-500'],
         "error": ['border-rose-500', 'bg-rose-500']
     };
+
     
     return (
     <div className={`fixed top-5 right-5 z-[9999] bg-slate-900 border-2 ${colores[tipo][0]} text-white px-6 py-4 rounded-xl shadow-[0_0_20px_rgba(16,185,129,0.3)] flex items-center space-x-3 transition-all`}>

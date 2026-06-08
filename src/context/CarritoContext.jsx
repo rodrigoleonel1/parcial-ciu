@@ -1,10 +1,21 @@
 import { createContext, useState } from "react";
+import Alerta from "../components/Alerta"
 export const CarritoContext = createContext();
 
 const CarritoProvider = ({ children }) => {
   const [carrito, setCarrito] = useState([]);
   const [carritoAux, setCarritoAux] = useState([])
+const [visible, setVisible] = useState(false);
+const [alertaInfo, setAlertaInfo] = useState({ mensaje: "", tipo: "buena" });
 
+const dispararAlerta = (mensaje, tipo) => {
+    setAlertaInfo({ mensaje, tipo });
+    setVisible(true);
+    
+    setTimeout(() => {
+        setVisible(false);
+    }, 3000);
+};
 
   //Funcion que se podra utilizar para agregar otro tipo de compras
   function agregarVariosProductos(producto) {
@@ -16,8 +27,11 @@ const CarritoProvider = ({ children }) => {
             p.id === producto.id ? { ...p, cantidad: p.cantidad + 1 } : p,
           ),
         );
+      dispararAlerta(`${producto.nombre} ha sido añadido al carrito.`, "error");
+
       } else {
-        alert("Excedio el limite de  compra");
+        dispararAlerta("Excedio el límite de compra", "error");
+        return
       }
     } else {
       setCarrito([...carrito, { ...producto, cantidad: 1 }]);
@@ -31,23 +45,29 @@ const CarritoProvider = ({ children }) => {
     const existeAux = carritoAux.find((p) => p.id === producto.id);
 
     if (existe) {
-      alert("No se puede comprar mas de un juego a la vez");
-    } else {
+      dispararAlerta("Ya tenés este título en tu carrito", "advertencia");
+      return;
       
+    } else {
       setCarrito([...carrito, { ...producto, cantidad: 1 }]);
+        dispararAlerta(`${producto.nombre} ha sido añadido al carrito.`, "buena"); // Cambiado a buena (cyan)
 
       if (!existeAux) {
         setCarritoAux([...carritoAux, { ...producto, cantidad: 1 }])
+        dispararAlerta(`${producto.nombre} ha sido añadido al carrito.`, "buena"); // Cambiado a buena (cyan)
       }
     }
   }
 
   function eliminarProducto(idx) {
+    const productoActual = carrito.find(p => p.id == idx)
     setCarrito(
       carrito.filter((productoActual) =>
         productoActual.id != idx
       )
+      
     )
+  dispararAlerta(`${productoActual.nombre} ha sido eliminado del carrito.`, "buena");
   }
 
   function aumentarCantidad() {
@@ -83,9 +103,18 @@ const CarritoProvider = ({ children }) => {
         disminuirCantidad,
         totalProductos,
         totalPrecio,
+        visible,
+        alertaInfo,
+        dispararAlerta
       }}
     >
       {children}
+          {visible && (
+      <Alerta
+        mensaje={alertaInfo.mensaje}
+        tipo={alertaInfo.tipo}
+      />
+    )}
     </CarritoContext.Provider>
   );
 };

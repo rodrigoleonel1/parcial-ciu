@@ -53,14 +53,14 @@ export default function ItemCarrito({ producto }) {
         <div className="flex flex-col gap-2">
           {existeProductoActual ? (
             <button
-              className="bg-red-500 text-white px-2 py-1 text-xs sm:px-3 sm:py-2 sm:text-sm rounded hover:bg-red-600 hover:cursor-pointer transition-colors"
+              className="bg-rose-500 text-white px-2 py-1 text-xs sm:px-3 sm:py-2 sm:text-sm rounded hover:bg-rose-600 hover:cursor-pointer transition-colors"
               onClick={() => eliminarProducto(producto.id)}
             >
               Eliminar
             </button>
           ) : (
             <button
-              className="bg-blue-500 text-white px-2 py-1 text-xs sm:px-3 sm:py-2 sm:text-sm rounded hover:bg-blue-600 hover:cursor-pointer transition-colors"
+              className="bg-cyan-500 text-black px-2 py-1 text-xs sm:px-3 sm:py-2 sm:text-sm rounded hover:bg-cyan-400 hover:cursor-pointer transition-colors"
               onClick={() => agregarProducto(producto)}
             >
               Agregar
