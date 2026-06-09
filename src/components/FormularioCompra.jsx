@@ -75,147 +75,181 @@ export default function FormularioCompra() {
   if (compraConfirmada) {
     return (
       <div className="flex flex-col gap-4 items-center justify-center text-lg p-4 text-center">
-        <h2>¡Gracias por comprar en NotSteam, {formulario.nombres}!</h2>
+        <h2>¡Gracias por comprar en Not<span className="text-cyan-400">Steam</span>, {formulario.nombres}!</h2>
         <h3>A continuacion te enviaremos tu {formulario.entrega}.</h3>
         <p>Recibiras la confirmacion de tu compra en: {formulario.email}</p>
-        <button
-          className="bg-cyan-400 hover:bg-cyan-300 text-black font-display font-bold px-8 py-2 rounded-xl transition-all hover:shadow-lg uppercase hover:cursor-pointer"
-          type="button"
-          onClick={() => navigate("/")}
-        >
-          Volver al Inicio
-        </button>
+        <div className="flex gap-4">
+          <button
+            className="bg-cyan-400 hover:bg-cyan-300 text-black font-display font-bold px-8 py-2 rounded-xl transition-all hover:shadow-lg uppercase hover:cursor-pointer"
+            type="button"
+            onClick={() => navigate("/")}
+          >
+            Volver al Inicio
+          </button>
+          <button
+            className="bg-cyan-400 hover:bg-cyan-300 text-black font-display font-bold px-8 py-2 rounded-xl transition-all hover:shadow-lg uppercase hover:cursor-pointer"
+            type="button"
+            onClick={() => navigate("/productos")}
+          >
+            Seguir comprando
+          </button>
+        </div>
       </div>
     );
   }
 
   return (
-    <form onSubmit={enviandoInformacion}>
-      {/*etiquetaOError("nombres", "Nombre/s")*/}
-      <label className="flex flex-col gap-1">
-        <span className="text-white">Nombre\s</span>
-        <input
-          id="nombres"
-          className={`invalid:border-rose-500 required:border-rose-600 w-full bg-gray-800 text-white border border-gray-600 rounded px-3 py-2 focus:outline-none focus:border-cyan-400 hover:border-cyan-600 mb-3 ${errores.nombres ? "border-rose-600" : "border-gray-600 focus:border-cyan-400"}`}
-          placeholder="Nombre/s"
-          name="nombres"
-          value={formulario.nombres}
-          type="text"
-          onChange={completandoCampo}
-        />
-        {errores.nombres && (
-          <span className="text-rose-500 mb-2 -mt-3">{errores.nombres}</span>
-        )}
-      </label>
-      {/*etiquetaOError("apellido", "Apellido/s")*/}
-      <label className="flex flex-col gap-1">
-        <span className="text-white">Apellido\s</span>
-        <input
-          id="apellido"
-          className={`invalid:border-rose-500 required:border-rose-600 w-full bg-gray-800 text-white border border-gray-600 rounded px-3 py-2 focus:outline-none focus:border-cyan-400 hover:border-cyan-600 mb-3 ${errores.apellido ? "border-rose-600" : "border-gray-600 focus:border-cyan-400"}`}
-          placeholder="Apellido"
-          name="apellido"
-          value={formulario.apellido}
-          type="text"
-          onChange={completandoCampo}
-        />
-        {errores.apellido && (
-          <span className="text-rose-500 mb-2 -mt-3">{errores.apellido}</span>
-        )}
-      </label>
+    <div className="grid grid-cols-2 gap-4">
+      <form onSubmit={enviandoInformacion}>
+        {/*etiquetaOError("nombres", "Nombre/s")*/}
+        <label className="flex flex-col gap-1">
+          <span className="text-white">Nombre\s</span>
+          <input
+            id="nombres"
+            className={`invalid:border-rose-500 required:border-rose-600 w-full bg-gray-800 text-white border border-gray-600 rounded px-3 py-2 focus:outline-none focus:border-cyan-400 hover:border-cyan-600 mb-3 ${errores.nombres ? "border-rose-600" : "border-gray-600 focus:border-cyan-400"}`}
+            placeholder="Nombre/s"
+            name="nombres"
+            value={formulario.nombres}
+            type="text"
+            onChange={completandoCampo}
+          />
+          {errores.nombres && (
+            <span className="text-rose-500 mb-2 -mt-3">{errores.nombres}</span>
+          )}
+        </label>
+        {/*etiquetaOError("apellido", "Apellido/s")*/}
+        <label className="flex flex-col gap-1">
+          <span className="text-white">Apellido\s</span>
+          <input
+            id="apellido"
+            className={`invalid:border-rose-500 required:border-rose-600 w-full bg-gray-800 text-white border border-gray-600 rounded px-3 py-2 focus:outline-none focus:border-cyan-400 hover:border-cyan-600 mb-3 ${errores.apellido ? "border-rose-600" : "border-gray-600 focus:border-cyan-400"}`}
+            placeholder="Apellido"
+            name="apellido"
+            value={formulario.apellido}
+            type="text"
+            onChange={completandoCampo}
+          />
+          {errores.apellido && (
+            <span className="text-rose-500 mb-2 -mt-3">{errores.apellido}</span>
+          )}
+        </label>
 
-      {/*etiquetaOError("email", "Correo Electronico")*/}
-      <label className="flex flex-col gap-1">
-        <span className="text-white">Correo Electronico</span>
-        <input
-          id="email"
-          className={`invalid:border-rose-500 required:border-rose-600 w-full bg-gray-800 text-white border border-gray-600 rounded px-3 py-2 focus:outline-none focus:border-cyan-400 hover:border-cyan-600 mb-3 ${errores.email ? "border-rose-600" : "border-gray-600 focus:border-cyan-400"}`}
-          placeholder="Correo Electronico"
-          name="email"
-          value={formulario.email}
-          type="text"
-          onChange={completandoCampo}
-        />
-        {errores.email && (
-          <span className="text-rose-500 mb-2 -mt-3">{errores.email}</span>
-        )}
-      </label>
+        {/*etiquetaOError("email", "Correo Electronico")*/}
+        <label className="flex flex-col gap-1">
+          <span className="text-white">Correo Electronico</span>
+          <input
+            id="email"
+            className={`invalid:border-rose-500 required:border-rose-600 w-full bg-gray-800 text-white border border-gray-600 rounded px-3 py-2 focus:outline-none focus:border-cyan-400 hover:border-cyan-600 mb-3 ${errores.email ? "border-rose-600" : "border-gray-600 focus:border-cyan-400"}`}
+            placeholder="Correo Electronico"
+            name="email"
+            value={formulario.email}
+            type="text"
+            onChange={completandoCampo}
+          />
+          {errores.email && (
+            <span className="text-rose-500 mb-2 -mt-3">{errores.email}</span>
+          )}
+        </label>
 
-      {/*etiquetaOError("telefono", "Telefono")*/}
-      <label className="flex flex-col gap-1">
-        <span className="text-white">Telefono</span>
-        <input
-          id="telefono"
-          className={`invalid:border-rose-500 required:border-rose-600 w-full bg-gray-800 text-white border border-gray-600 rounded px-3 py-2 focus:outline-none focus:border-cyan-400 hover:border-cyan-600 mb-3 ${errores.telefono ? "border-rose-600" : "border-gray-600 focus:border-cyan-400"}`}
-          placeholder="Telefono"
-          name="telefono"
-          value={formulario.telefono}
-          type="text"
-          onChange={completandoCampo}
-        />
-        {errores.telefono && (
-          <span className="text-rose-500 mb-2 -mt-3">{errores.telefono}</span>
-        )}
-      </label>
+        {/*etiquetaOError("telefono", "Telefono")*/}
+        <label className="flex flex-col gap-1">
+          <span className="text-white">Telefono</span>
+          <input
+            id="telefono"
+            className={`invalid:border-rose-500 required:border-rose-600 w-full bg-gray-800 text-white border border-gray-600 rounded px-3 py-2 focus:outline-none focus:border-cyan-400 hover:border-cyan-600 mb-3 ${errores.telefono ? "border-rose-600" : "border-gray-600 focus:border-cyan-400"}`}
+            placeholder="Telefono"
+            name="telefono"
+            value={formulario.telefono}
+            type="text"
+            onChange={completandoCampo}
+          />
+          {errores.telefono && (
+            <span className="text-rose-500 mb-2 -mt-3">{errores.telefono}</span>
+          )}
+        </label>
 
-      {/*etiquetaOError("direccion", "Direccion")*/}
-      <label className="flex flex-col gap-1">
-        <span className="text-white">Direccion</span>
-        <input
-          id="direccion"
-          className={`invalid:border-rose-500 required:border-rose-600 w-full bg-gray-800 text-white border border-gray-600 rounded px-3 py-2 focus:outline-none focus:border-cyan-400 hover:border-cyan-600 mb-3 ${errores.direccion ? "border-rose-600" : "border-gray-600 focus:border-cyan-400"}`}
-          placeholder="Direccion"
-          name="direccion"
-          value={formulario.direccion}
-          type="text"
+        {/*etiquetaOError("direccion", "Direccion")*/}
+        <label className="flex flex-col gap-1">
+          <span className="text-white">Direccion</span>
+          <input
+            id="direccion"
+            className={`invalid:border-rose-500 required:border-rose-600 w-full bg-gray-800 text-white border border-gray-600 rounded px-3 py-2 focus:outline-none focus:border-cyan-400 hover:border-cyan-600 mb-3 ${errores.direccion ? "border-rose-600" : "border-gray-600 focus:border-cyan-400"}`}
+            placeholder="Direccion"
+            name="direccion"
+            value={formulario.direccion}
+            type="text"
+            onChange={completandoCampo}
+          />
+          {errores.direccion && (
+            <span className="text-rose-500 mb-2 -mt-3">{errores.direccion}</span>
+          )}
+        </label>
+        {/*etiquetaOError("entrega", "Metodo de Entrega")*/}
+        <label className="flex flex-col gap-1">
+          <span className="text-white">Metodo de Entrega</span>
+          <select
+            id="entrega"
+            name="entrega"
+            value={formulario.entrega}
+            onChange={completandoCampo}
+            className={`invalid:border-rose-500 required:border-rose-600 w-full bg-gray-800 text-white border border-gray-600 rounded px-3 py-2 focus:outline-none focus:border-cyan-400 hover:border-cyan-600 mb-3 ${errores.entrega ? "border-rose-600" : "border-gray-600 focus:border-cyan-400"}`}
+          >
+            <option value="">Elija una opción</option>
+            <option value="clave del juego">Clave del juego</option>
+            <option value="regalo a tu cuenta">Regalo a tu cuenta</option>
+          </select>
+          {errores.entrega && (
+            <span className="text-rose-500 mb-2 -mt-3">{errores.entrega}</span>
+          )}
+        </label>
+        <label htmlFor="mensaje">Mensaje adicional:</label>
+        <textarea
+          name="mensaje"
+          className="w-full bg-gray-800 text-white border border-gray-600 rounded px-3 py-2 focus:outline-none focus:border-cyan-400 hover:border-cyan-600 mb-3"
+          value={formulario.mensaje}
           onChange={completandoCampo}
+          rows={5}
+          cols={50}
         />
-        {errores.direccion && (
-          <span className="text-rose-500 mb-2 -mt-3">{errores.direccion}</span>
-        )}
-      </label>
-      {/*etiquetaOError("entrega", "Metodo de Entrega")*/}
-      <label className="flex flex-col gap-1">
-        <span className="text-white">Metodo de Entrega</span>
-        <select
-          id="entrega"
-          name="entrega"
-          value={formulario.entrega}
-          onChange={completandoCampo}
-          className={`invalid:border-rose-500 required:border-rose-600 w-full bg-gray-800 text-white border border-gray-600 rounded px-3 py-2 focus:outline-none focus:border-cyan-400 hover:border-cyan-600 mb-3 ${errores.entrega ? "border-rose-600" : "border-gray-600 focus:border-cyan-400"}`}
-        >
-          <option value="">Elija una opción</option>
-          <option value="clave del juego">Clave del juego</option>
-          <option value="regalo a tu cuenta">Regalo a tu cuenta</option>
-        </select>
-        {errores.entrega && (
-          <span className="text-rose-500 mb-2 -mt-3">{errores.entrega}</span>
-        )}
-      </label>
-      <label htmlFor="mensaje">Mensaje adicional:</label>
-      <textarea
-        name="mensaje"
-        className="w-full bg-gray-800 text-white border border-gray-600 rounded px-3 py-2 focus:outline-none focus:border-cyan-400 hover:border-cyan-600 mb-3"
-        value={formulario.mensaje}
-        onChange={completandoCampo}
-        rows={5}
-        cols={50}
-      />
-      <div className="flex gap-4">
-        <button
-          type="submit"
-          className="bg-cyan-400 hover:bg-cyan-300 text-black font-display font-bold px-8 py-2 rounded-xl transition-all hover:shadow-lg uppercase hover:cursor-pointer"
-        >
-          Finalizar Compra
-        </button>
-        <button
-          type="button"
-          onClick={() => navigate(-1)}
-          className="bg-rose-500 hover:bg-rose-400 text-black font-display font-bold px-8 py-2 rounded-xl transition-all hover:shadow-lg uppercase hover:cursor-pointer"
-        >
-          Atras
-        </button>
+        <div className="flex gap-4">
+          <button
+            type="submit"
+            className="bg-cyan-400 hover:bg-cyan-300 text-black font-display font-bold px-8 py-2 rounded-xl transition-all hover:shadow-lg uppercase hover:cursor-pointer"
+          >
+            Finalizar Compra
+          </button>
+          <button
+            type="button"
+            onClick={() => navigate(-1)}
+            className="bg-rose-500 hover:bg-rose-400 text-black font-display font-bold px-8 py-2 rounded-xl transition-all hover:shadow-lg uppercase hover:cursor-pointer"
+          >
+            Atras
+          </button>
+        </div>
+      </form>
+      <div>
+        <h2 className="text-lg font-bold">Orden de compra</h2>
+        <div className="pt-3">
+          {carrito.map(
+            (p) =>
+              <div key={p.id}>
+                <div className="bg-gray-900 border border-gray-800 shadow-lg rounded-xl p-4 flex gap-4 items-center transition-all justify-between">
+                  <div className="flex">
+                    <img src={p.imagen} alt={p.nombre} className="w-24 h-24" />
+                    <div>
+                      <p className="text-l font-medium text-white ml-2 pt-2">{p.nombre}</p>
+                      <p className="text-l font-medium text-white ml-2 pt-2">Cantidad: {(p.stock - p.stock) + 1}</p>
+                    </div>
+                  </div>
+                  <div>
+                    <p className="text-lg">$ {p.precio}</p>
+                  </div>
+                </div>
+                <hr className="border-cyan-800 mt-3 mb-3" />
+              </div>
+          )}
+        </div>
       </div>
-    </form>
+    </div>
   );
 }
