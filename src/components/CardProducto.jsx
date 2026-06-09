@@ -5,7 +5,7 @@ import { FavoritosContext } from "../context/FavoritosContext";
 import { Heart } from "lucide-react";
 
 export default function CardProducto({ producto }) {
-  const { agregarProducto } = useContext(CarritoContext);
+  const { agregarVariosProductos } = useContext(CarritoContext);
   const { toggleFavorito, esFavorito } = useContext(FavoritosContext);
   return (
     <div>
@@ -48,7 +48,7 @@ export default function CardProducto({ producto }) {
       <div className="flex justify-between mt-4">
         <button
           disabled={producto.stock === 0}
-          onClick={() => agregarProducto(producto)}
+          onClick={() => agregarVariosProductos(producto)}
           className={`px-3 py-2 rounded transition-colors
         ${
           producto.stock > 0
