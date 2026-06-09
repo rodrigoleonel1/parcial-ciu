@@ -16,5 +16,5 @@ Primer parcial de la materia Construcción de Interfaces de Usuario de la Univer
 - Formulario para realizar la compra y módulo de pago simulado.
 - Sistemas de carrito y de favoritos, con sus funciones de agregar, eliminar y vaciar.
 
-## Autor
+## Autores
 Luca Carlino
