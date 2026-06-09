@@ -45,12 +45,6 @@ export default function Navbar() {
             >
               Nosotros
             </NavLink>
-            <NavLink
-              to="/contacto"
-              className="font-semibold tracking-wider text-sm uppercase transition-colors text-cyan-400 hover:text-white"
-            >
-              Contacto
-            </NavLink>
           </div>
 
           <div className="flex items-center gap-4">
@@ -109,13 +103,6 @@ export default function Navbar() {
               onClick={handleClick}
             >
               Nosotros
-            </NavLink>
-            <NavLink
-              to="/contacto"
-              className="font-semibold tracking-wider text-sm uppercase transition-colors text-cyan-400 hover:text-white"
-              onClick={handleClick}
-            >
-              Contacto
             </NavLink>
           </div>
         )}

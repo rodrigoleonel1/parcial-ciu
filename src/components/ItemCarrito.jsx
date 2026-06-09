@@ -40,10 +40,10 @@ export default function ItemCarrito({ producto }) {
         <img
           src={producto.imagen}
           alt={producto.nombre}
-          className="w-20 h-20 max-[425px]:w-full max-[425px]:h-40 object-cover rounded-lg flex-shrink-0"
+          className="w-20 h-20 max-[425px]:w-full max-[425px]:h-40 object-cover rounded-lg shrink-0"
         />
         <div className="flex-1 min-w-0 max-[425px]:w-full max-[425px]:text-center">
-          <h2 className="font-semibold text-lg break-words">
+          <h2 className="font-semibold text-lg wrap-break-word">
             {producto.nombre}
           </h2>
 
@@ -57,7 +57,7 @@ export default function ItemCarrito({ producto }) {
             Subtotal: {subTotalProducto(producto)}
           </p>
         </div>
-        <div className="flex flex-col gap-2 flex-shrink-0">
+        <div className="flex flex-col gap-2 shrink-0">
           <button
             className="bg-cyan-400 hover:bg-cyan-300 text-black font-display font-bold px-6 py-1.5 rounded-xl transition-all hover:shadow-lg uppercase hover:cursor-pointer"
             onClick={() => agregarVariosProductos(producto)}

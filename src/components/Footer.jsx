@@ -38,12 +38,6 @@ export default function Footer() {
             >
               Nosotros
             </NavLink>
-            <NavLink
-              to="/contacto"
-              className="tracking-wider text-sm transition-colors text-gray-400 hover:text-cyan-400"
-            >
-              Contacto
-            </NavLink>
           </nav>
         </article>
         <article className="sm:mx-auto">
