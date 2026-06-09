@@ -5,20 +5,11 @@ import { CarritoContext } from "../context/CarritoContext";
 import { GamepadDirectional } from "lucide-react";
 
 const DetalleProducto = ({ agregarAlCarrito }) => {
-  const { agregarProducto, carritoAux } = useContext(CarritoContext); //carritoAux va servir para evaluar si el juego se encuentra en la vista del carrito
+  const { agregarVariosProductos, carritoAux } = useContext(CarritoContext); //carritoAux va servir para evaluar si el juego se encuentra en la vista del carrito
   const { id } = useParams();
   const [mostrarCartel, setMostrarCartel] = useState(false);
   const { productos } = useContext(ProductosContext); //linea que se agrego para solucionar conflicto
   const juego = productos?.find((p) => p.id === Number(id));
-
-  useEffect(() => {
-    if (mostrarCartel) {
-      const timer = setTimeout(() => {
-        setMostrarCartel(false);
-      }, 4000);
-      return () => clearTimeout(timer);
-    }
-  }, [mostrarCartel]);
 
   if (!juego) {
     return <Navigate to="/404" replace />;
@@ -27,11 +18,10 @@ const DetalleProducto = ({ agregarAlCarrito }) => {
   const sinStock = juego.stock === 0;
 
   const handleAgregarClick = () => {
-    setMostrarCartel(true);
 
-    if (typeof agregarProducto === "function") {
+    if (typeof agregarVariosProductos === "function") {
       try {
-        agregarProducto(juego);
+        agregarVariosProductos(juego);
       } catch (error) {
         console.error("Error al ejecutar agregarAlCarrito:", error);
       }
@@ -57,16 +47,6 @@ const DetalleProducto = ({ agregarAlCarrito }) => {
 
   return (
     <div className="container mx-auto py-8 max-w-7xl relative px-4 sm:px-6 lg:px-8">
-      {mostrarCartel && (
-        <div className="fixed top-5 right-5 z-9999 bg-slate-900 border-2 border-emerald-500 text-white px-6 py-4 rounded-xl shadow-[0_0_20px_rgba(16,185,129,0.3)] flex items-center space-x-3 transition-all">
-          <span className="bg-emerald-500 text-slate-950 rounded-full w-5 h-5 flex items-center justify-center font-bold text-xs">
-            ✓
-          </span>
-          <span className="text-sm font-bold tracking-wide">
-            Añadido al carrito
-          </span>
-        </div>
-      )}
 
       <div className="mb-6">
         <Link
