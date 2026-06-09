@@ -1,16 +1,20 @@
-# React + Vite
+# NotSteam
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Descripción
+NotSteam es un proyecto de ecommerce destinado a la venta digital de videojuegos, desarrollado en React y estilizado enteramente con Tailwind.
+Primer parcial de la materia Construcción de Interfaces de Usuario de la Universidad Nacional de Hurlingham.
 
-Currently, two official plugins are available:
+## Tecnologías Utilizadas
+- JavaScript
+- React
+- Vite
+- Tailwind
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Funcionalidades
+- Header y footer, páginas de inicio, catálogo de productos, detalles de producto en específico y página sobre nosotros.
+- Múltiples filtros para la búsqueda de productos; por nombre, categoría, y precio.
+- Formulario para realizar la compra y módulo de pago simulado.
+- Sistemas de carrito y de favoritos, con sus funciones de agregar, eliminar y vaciar.
 
-## React Compiler
-
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Autor
+Luca Carlino
