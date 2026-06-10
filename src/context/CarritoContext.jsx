@@ -73,8 +73,21 @@ const CarritoProvider = ({ children }) => {
 
   function eliminarProducto(producto) {
     const existe = carrito.find((prodActual) => prodActual.id == producto.id);
-
-    if (existe.cantidad >= 1) {
+    /*
+    setCarrito(
+      carrito.filter((existe) =>
+        existe.id != producto.id
+      )
+    )
+    dispararAlerta(`${existe.nombre} ha sido eliminado del carrito.`, "buena")
+    */
+    if (existe.cantidad === 1) {
+      setCarrito(
+        carrito.filter((existe) =>
+          existe.id !== producto.id
+        )
+      )
+    } else if (existe.cantidad >= 1) {
       setCarrito(
         carrito.map((p) =>
           p.id === producto.id ? { ...p, cantidad: p.cantidad - 1 } : p,
