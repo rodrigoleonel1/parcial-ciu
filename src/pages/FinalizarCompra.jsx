@@ -1,5 +1,6 @@
 import FormularioCompra from "../components/FormularioCompra";
 
+
 export default function FinalizarCompra() {
   return (
     <section className="bg-linear-to-b from-cyan-950/30 via-gray-950 to-gray-950 py-20 pb-32 md:pb-20 min-h-screen">
