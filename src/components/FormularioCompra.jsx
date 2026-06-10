@@ -17,8 +17,7 @@ export default function FormularioCompra() {
   const [errores, setErrores] = useState({});
   const [compraConfirmada, setCompraConfirmada] = useState(false);
 
-  const { carrito, setCarrito, carritoAux, setCarritoAux } =
-    useContext(CarritoContext);
+  const { carrito, setCarrito, carritoAux, setCarritoAux } = useContext(CarritoContext);
 
   function completandoCampo(e) {
     setFormulario({ ...formulario, [e.target.name]: e.target.value });
@@ -99,8 +98,8 @@ export default function FormularioCompra() {
   }
 
   return (
-    <div className="grid grid-cols-2 gap-4">
-      <form onSubmit={enviandoInformacion}>
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+      <form onSubmit={enviandoInformacion} className="md:h-[550px] lg:h-[720px] order-2">
         {/*etiquetaOError("nombres", "Nombre/s")*/}
         <label className="flex flex-col gap-1">
           <span className="text-white">Nombre\s</span>
@@ -227,7 +226,7 @@ export default function FormularioCompra() {
           </button>
         </div>
       </form>
-      <div>
+      <div className="overflow-y-auto order-1">
         <h2 className="text-lg font-bold">Orden de compra</h2>
         <div className="pt-3">
           {carrito.map(
@@ -235,7 +234,7 @@ export default function FormularioCompra() {
               <div key={p.id}>
                 <div className="bg-gray-900 border border-gray-800 shadow-lg rounded-xl p-4 flex gap-4 items-center transition-all justify-between">
                   <div className="flex">
-                    <img src={p.imagen} alt={p.nombre} className="w-24 h-24" />
+                    <img src={p.imagen} alt={p.nombre} className="w-20 h-20" />
                     <div>
                       <p className="text-l font-medium text-white ml-2 pt-2">{p.nombre}</p>
                       <p className="text-l font-medium text-white ml-2 pt-2">Cantidad: {(p.stock - p.stock) + 1}</p>
