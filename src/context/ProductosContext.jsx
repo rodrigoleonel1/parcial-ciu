@@ -204,22 +204,5 @@ export const productos = [
     ],
     stock: 4,
       badge: 'bestseller'
-  },
-  {
-    id: 17,
-    nombre: 'Skyrim',
-    categoria: 'RPG',
-    precio: 14999,
-    imagen: 'https://image.api.playstation.com/vulcan/ap/rnd/202110/2019/aDSOgerXg4V6sf5A7VzHiTun.jpg',
-    descripcion: 'un RPG de mundo abierto donde encarnás al Sangre de Dragón. Explorá Skyrim, enfrentá dragones y decidí el destino del reino en una historia épica llena de libertad.',
-    descripcion_breve: 'RPG de mundo abierto',
-    caracteristicas: [
-      'Mundo abierto inmenso',
-      'Sistema de habilidades libre',
-      'Dragones y magia',
-      'Mods ilimitados'
-    ],
-    stock: 4,
-      badge: null
   }
 ]

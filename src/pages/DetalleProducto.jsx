@@ -129,7 +129,7 @@ const DetalleProducto = ({ agregarAlCarrito }) => {
             <div className="text-xs border-t border-slate-700/50 pt-4 flex items-center space-x-1.5">
               <span className="text-slate-400">Stock:</span>
               {sinStock ? (
-                <span className="text-rose-5---------------------------------00 font-extrabold uppercase">
+                <span className="text-rose-500 font-extrabold uppercase">
                   Sin Stock
                 </span>
               ) : (
