@@ -44,3 +44,4 @@ Primer parcial de la materia Construcción de Interfaces de Usuario de la Univer
 - Luca Carlino
 - Agustin Leandro Oviedo
 - Rodrigo Alarcon
+- David Acosta
