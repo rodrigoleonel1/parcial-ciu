@@ -82,11 +82,8 @@ const CarritoProvider = ({ children }) => {
     dispararAlerta(`${existe.nombre} ha sido eliminado del carrito.`, "buena")
     */
     if (existe.cantidad === 1) {
-      setCarrito(
-        carrito.filter((existe) =>
-          existe.id !== producto.id
-        )
-      )
+      setCarrito(carrito.filter((existe) => existe.id !== producto.id));
+      setCarritoAux(carritoAux.filter((existe) => existe.id !== producto.id));
     } else if (existe.cantidad >= 1) {
       setCarrito(
         carrito.map((p) =>
@@ -172,4 +169,3 @@ const CarritoProvider = ({ children }) => {
 };
 
 export default CarritoProvider;
-
