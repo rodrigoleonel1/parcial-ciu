@@ -18,3 +18,4 @@ Primer parcial de la materia Construcción de Interfaces de Usuario de la Univer
 
 ## Autores
 Luca Carlino
+Agustin Leandro Oviedo
