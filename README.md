@@ -45,3 +45,4 @@ Primer parcial de la materia Construcción de Interfaces de Usuario de la Univer
 - Agustin Leandro Oviedo
 - Rodrigo Alarcon
 - David Acosta
+- Malena Lozano
